@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Test_GithubActions.Models;
-testtest
+
 namespace Test_GithubActions.Controllers
 {
     public class HomeController : Controller
