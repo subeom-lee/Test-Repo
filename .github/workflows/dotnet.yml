@@ -26,7 +26,3 @@ jobs:
 
       - name: Test
         run: dotnet test --configuration Release "./TestProject/TestProject.csproj"
-
-      - name: Check Build and Test Status
-        if: ${{ failure() }}
-        run: echo "Build or test failed! All checks have failed."
