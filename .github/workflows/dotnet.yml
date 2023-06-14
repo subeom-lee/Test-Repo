@@ -21,9 +21,6 @@ jobs:
         with:
           dotnet-version: '6.0.x'  # 사용하고자 하는 .NET 버전
 
-      - name: Restore dependencies --no-dependencies
-        run: dotnet restore
-
       - name: Build
         run: dotnet build --configuration Release
 
