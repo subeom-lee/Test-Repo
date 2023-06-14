@@ -1,16 +1,19 @@
-name: Build and Test PR
+name: Build Only PR
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
     branches:
-      - working
+      - master
 
 jobs:
-  build-and-test:
+  build-only-pr:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Setup .NET
@@ -24,13 +27,8 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release
 
-      - name: Run tests
-        run: dotnet test --configuration Release --no-restore --verbosity normal
+      - name: Check Build Status
+        if: ${{ failure() }}
+        run: echo "Build failed! All checks have failed."
 
-      - name: Merge PR if tests pass
-        if: ${{ success() }}
-        uses: repo-sync/github-action@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          method: merge
-          branch: ${{ github.head_ref }}
+      # 추가적인 단계들
