@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Test_GithubActions.Models;
-
+// 빌드 잘 됨
 namespace Test_GithubActions.Controllers
 {
     public class HomeController : Controller
