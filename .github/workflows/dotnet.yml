@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '6.0.x'  # 사용하고자 하는 .NET 버전
 
       - name: Build
-        run: dotnet build --configuration Release "Test GithubActions.csproj"
+        run: dotnet build --configuration Release ./Test GithubActions/Test GithubActions
 
 
       - name: Check Build Status
