@@ -1,4 +1,4 @@
-name: Build Only PR
+name: Build and Test PR
 
 on:
   pull_request:
@@ -24,10 +24,9 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release "./Test GithubActions/Test GithubActions.csproj"
 
+      - name: Test
+        run: dotnet test --configuration Release "./TestProject/TestProject.csproj"
 
-
-      - name: Check Build Status
+      - name: Check Build and Test Status
         if: ${{ failure() }}
-        run: echo "Build failed! All checks have failed."
-
-      # 추가적인 단계들
+        run: echo "Build or test failed! All checks have failed."
