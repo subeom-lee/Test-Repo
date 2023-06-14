@@ -16,6 +16,8 @@ namespace TestProject
     {
         public UnitTest1()
         {
+            var test = 1;
+            Assert.IsTrue(test == 2);
             // push test2
             // TODO: Add constructor logic here
             //
